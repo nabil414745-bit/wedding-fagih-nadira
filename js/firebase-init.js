@@ -14,7 +14,7 @@
 // KONFIGURASI JSONBIN
 // ==============================
 window.jsonbinConfig = {
-    apiKey: "",          // ← Paste Secret Key dari jsonbin.io di sini
+    apiKey: "$2a$10$ut8ae20OZOwdzsh7UOCZxul8oaWlNoyz9AibpAc.QhNGDW7d3kkX2",
     binId: "",           // ← Akan otomatis terisi setelah pertama kali ada data masuk
     collectionName: "wedding-rsvp-nadira-fagih"
 };
