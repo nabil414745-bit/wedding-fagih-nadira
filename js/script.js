@@ -182,6 +182,16 @@ function getGuestName() {
     return guestName ? decodeURIComponent(guestName) : weddingData.defaultGuest;
 }
 
+// ==============================
+// UTILITY: Cek apakah ini mode Admin
+// Link admin: URL undangan + ?admin=fagihnadira2026
+// Contoh: https://wedding-fagih-nadira.vercel.app/?admin=fagihnadira2026
+// ==============================
+function isAdmin() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('admin') === 'fagihnadira2026';
+}
+
 
 // ==============================
 // LOADING SCREEN
@@ -992,12 +1002,26 @@ function initRSVP() {
         showToast('Konfirmasi & doa restu berhasil dikirim ✓');
     });
 
-    // Tombol Export ke CSV / Excel
+    // Tombol Export ke CSV / Excel — hanya tampil untuk Admin
     const exportBtn = document.getElementById('btn-export-csv');
-    if (exportBtn) {
-        exportBtn.addEventListener('click', () => {
-            exportRSVPToCSV();
-        });
+    const exportWrapper = document.getElementById('btn-export-csv') ? document.getElementById('btn-export-csv').closest('.rsvp-export-wrapper') : null;
+    if (exportBtn && exportWrapper) {
+        if (isAdmin()) {
+            // Tampilkan tombol export hanya untuk admin
+            exportWrapper.style.display = 'block';
+            exportBtn.addEventListener('click', () => {
+                exportRSVPToCSV();
+            });
+
+            // Tambah label admin kecil
+            const adminBadge = document.createElement('div');
+            adminBadge.style.cssText = 'text-align:center; margin-top:8px; font-size:11px; color:#C9A96E; opacity:0.7;';
+            adminBadge.textContent = '🔑 Mode Admin Aktif';
+            exportWrapper.appendChild(adminBadge);
+        } else {
+            // Sembunyikan tombol dari tamu biasa
+            exportWrapper.style.display = 'none';
+        }
     }
 
     // Load more button
