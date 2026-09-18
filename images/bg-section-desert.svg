@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+  <defs>
+    <linearGradient id="g4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFF9F0;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#FDEBD0;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#FFF3E4;stop-opacity:1"/>
+    </linearGradient>
+    <radialGradient id="glow4" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" style="stop-color:#C9785D;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#FFF9F0;stop-opacity:0"/>
+    </radialGradient>
+    <pattern id="p4" x="0" y="0" width="110" height="110" patternUnits="userSpaceOnUse">
+      <g stroke="#B8734A" fill="none" opacity="0.14">
+        <rect x="40" y="40" width="30" height="30" stroke-width="0.8"/>
+        <rect x="40" y="40" width="30" height="30" stroke-width="0.8" transform="rotate(45 55 55)"/>
+        <circle cx="55" cy="55" r="24" stroke-width="0.6"/>
+        <circle cx="55" cy="55" r="36" stroke-width="0.4" stroke-dasharray="3,2"/>
+        <circle cx="0" cy="0" r="8" stroke-width="0.5"/>
+        <circle cx="110" cy="0" r="8" stroke-width="0.5"/>
+        <circle cx="0" cy="110" r="8" stroke-width="0.5"/>
+        <circle cx="110" cy="110" r="8" stroke-width="0.5"/>
+      </g>
+    </pattern>
+  </defs>
+  <rect width="1440" height="900" fill="url(#g4)"/>
+  <rect width="1440" height="900" fill="url(#glow4)"/>
+  <rect width="1440" height="900" fill="url(#p4)"/>
+  <rect x="18" y="18" width="1404" height="864" fill="none" stroke="#B8734A" stroke-width="0.8" opacity="0.15" rx="14"/>
+</svg>

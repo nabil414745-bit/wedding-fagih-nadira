@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <!-- ==============================
+         META & SEO
+         ============================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description"
+        content="Undangan Pernikahan Nadira & Fagih — Anda diundang untuk berbagi kebahagiaan bersama kami.">
+    <meta name="theme-color" content="#4A0E17">
+    <meta property="og:title" content="The Wedding of Nadira & Fagih">
+    <meta property="og:description" content="Undangan Pernikahan Nadira & Fagih">
+    <meta property="og:type" content="website">
+    <title>The Wedding of Nadira & Fagih</title>
+
+    <!-- ==============================
+         STYLESHEET
+         ============================== -->
+    <link rel="stylesheet" href="css/style.css?v=14">
+
+    <!-- Preconnect Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+
+    <!-- ==============================
+         LOADING SCREEN
+         Layar loading saat website pertama kali dibuka
+         ============================== -->
+    <div id="loading-screen">
+        <div class="loading-ornament"></div>
+        <div class="loading-text">Nadira & Fagih</div>
+    </div>
+
+
+    <!-- ==============================
+         FLOATING PETALS ANIMATION
+         Animasi kelopak bunga yang jatuh perlahan
+         ============================== -->
+    <div id="petals-container" aria-hidden="true"></div>
+
+
+    <!-- ==============================
+         OPENING SCREEN / COVER
+         Halaman pembuka fullscreen sebelum undangan dibuka
+         ============================== -->
+    <div id="opening-screen">
+        <!-- Background Slideshow -->
+        <div class="cover-bg">
+            <div id="cover-slides">
+                <!-- Slides akan di-generate oleh JavaScript dari weddingData.coverImages -->
+            </div>
+        </div>
+
+        <!-- Overlay gelap + vignette -->
+        <div class="cover-overlay"></div>
+
+        <!-- Konten Cover -->
+        <div class="cover-content">
+            <!-- Label -->
+            <div class="cover-label">The Wedding of</div>
+
+            <!-- Ilustrasi Couple -->
+            <div class="cover-illustration">
+                <img id="cover-illustration-img" src="images/couple-illustration.png?v=20260831" alt="Foto Nadira & Fagih" class="cover-illustration-img">
+            </div>
+
+            <!-- Nama Pasangan -->
+            <h1 class="cover-names">
+                Nadira
+                <span class="cover-ampersand">&</span>
+                Fagih
+            </h1>
+
+            <!-- Tanggal -->
+            <div class="cover-date" id="cover-date"></div>
+
+            <!-- Garis Emas -->
+            <div class="cover-gold-line"></div>
+
+            <!-- Nama Tamu -->
+            <div class="cover-guest-label">Kepada Yth.</div>
+            <div class="cover-guest-name" id="guest-name">Man 13</div>
+
+            <!-- Tombol Buka Undangan -->
+            <button class="btn-open-invitation" id="btn-open" aria-label="Buka Undangan">
+                <span class="envelope-icon">✉</span>
+                Open Invitation
+            </button>
+        </div>
+    </div>
+
+
+    <!-- ==============================
+         MAIN INVITATION
+         ============================== -->
+    <main id="main-invitation">
+        <!-- Islamic Geometric Pattern Overlay -->
+        <div class="islamic-pattern-overlay" aria-hidden="true"></div>
+
+        <!-- ==============================
+             SECTION: AYAT / QUOTE
+             Ayat Al-Quran pembuka
+             ============================== -->
+        <section id="section-ayat" class="section section-ivory">
+            <!-- Ornamen sudut -->
+            <div class="ornament-corner top-left"></div>
+            <div class="ornament-corner top-right"></div>
+            <div class="ornament-corner bottom-left"></div>
+            <div class="ornament-corner bottom-right"></div>
+
+            <div class="section-inner">
+                <!-- Logo Calligraphy Monogram Crest Spotlight (Setelah Open Invitation) -->
+                <div class="reveal">
+                    <div class="main-logo-spotlight">
+                        <img src="images/logo-monogram.jpg" alt="Logo Kaligrafi Nadira & Fagih"
+                            class="logo-monogram-img">
+                    </div>
+                </div>
+
+                <div class="reveal">
+                    <div class="ayat-bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+                </div>
+
+                <div class="reveal delay-1">
+                    <div class="section-label">Dengan memohon rahmat dan ridho Allah SWT</div>
+                    <p class="section-subtitle" style="margin-bottom: 32px;">
+                        Kami bermaksud mengikat janji suci dalam keluarga yang penuh doa dan harapan. Mohon kiranya
+                        Bapak/Ibu/Saudara/i hadir memberikan restu pada momen yang kami panjatkan untuk masa depan yang
+                        diberkahi.
+                    </p>
+                </div>
+
+                <div class="reveal delay-2">
+                    <div class="ayat-reference">QS. Ar-Rum Ayat 21</div>
+                </div>
+
+                <div class="reveal delay-3">
+                    <div class="ayat-arabic">
+                        وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ
+                        بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
+                    </div>
+                </div>
+
+                <div class="reveal delay-4">
+                    <div class="section-divider"></div>
+                    <div class="ayat-translation">
+                        "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari
+                        jenismu sendiri agar kamu merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih
+                        dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang
+                        berpikir."
+                    </div>
+                </div>
+
+                <div class="reveal delay-5">
+                    <div class="ayat-ornament"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Islamic Ornament Divider -->
+        <div class="islamic-divider" aria-hidden="true">
+            <span class="islamic-star">✦</span>
+            <span class="islamic-crescent">☪</span>
+            <span class="islamic-star">✦</span>
+        </div>
+
+        <!-- ==============================
+             SECTION: PROFIL MEMPELAI
+             Data Nadira & Fagih
+             ============================== -->
+        <section id="section-couple" class="section section-cream">
+            <div class="section-inner">
+                <div class="reveal">
+                    <div class="section-label">The Bride & The Groom</div>
+                    <div class="section-title-script">Nadira & Fagih</div>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="couple-container">
+                    <!-- ==============================
+                         MEMPELAI WANITA — NADIRA
+                         ============================== -->
+                    <div class="couple-card reveal-left">
+                        <div class="couple-photo-wrapper">
+                            <img id="bride-photo" src="images/couple/nadira.png" alt="Foto Nadira" loading="lazy">
+                        </div>
+                        <div class="couple-nickname" id="bride-nickname">Nadira</div>
+                        <div class="couple-fullname" id="bride-fullname">Nadira Adiba Alattas</div>
+                        <div class="couple-parents">
+                            Putri dari<br>
+                            Bapak <strong id="bride-father">Ali bin Muhammad Alattas</strong><br>
+                            & Ibu <strong id="bride-mother">Dina binti Zen Aljufri</strong>
+                        </div>
+                        <a class="couple-instagram" id="bride-instagram" href="https://www.instagram.com/nadiraalattas_?igsh=dGZ6ZXhpdzUzaThl" target="_blank" rel="noopener">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                            Instagram
+                        </a>
+                    </div>
+
+                    <!-- Simbol & -->
+                    <div class="couple-and reveal-scale">&</div>
+
+                    <!-- ==============================
+                         MEMPELAI PRIA — FAGIH
+                         ============================== -->
+                    <div class="couple-card reveal-right">
+                        <div class="couple-photo-wrapper">
+                            <img id="groom-photo" src="images/couple/fagih.png" alt="Foto Fagih" loading="lazy">
+                        </div>
+                        <div class="couple-nickname" id="groom-nickname">Fagih</div>
+                        <div class="couple-fullname" id="groom-fullname">Ibrahim Fagih Alattas</div>
+                        <div class="couple-parents">
+                            Putra dari<br>
+                            Bapak <strong id="groom-father">Habib Kholid bin Ibrahim Alattas</strong><br>
+                            & Ibu <strong id="groom-mother">Zainab binti Abdullah Alattas</strong>
+                        </div>
+                        <a class="couple-instagram" id="groom-instagram" href="https://www.instagram.com/boim.151?igsh=dWI5ZmMxaHF1djU4" target="_blank" rel="noopener">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                            Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==============================
+             SECTION: COUNTDOWN
+             Hitung mundur menuju hari pernikahan
+             ============================== -->
+        <section id="section-countdown" class="section section-dark">
+            <div class="section-inner">
+                <div class="reveal">
+                    <div class="section-label" style="color: var(--color-champagne-light); opacity: 0.9;">Save The Date</div>
+                    <div class="section-title" style="color: var(--color-champagne); text-shadow: 0 2px 14px rgba(212, 175, 55, 0.35);">Menuju Hari Bahagia</div>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="countdown-container reveal delay-2" id="countdown-container">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="cd-days">00</span>
+                        <span class="countdown-label">Hari</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="cd-hours">00</span>
+                        <span class="countdown-label">Jam</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="cd-minutes">00</span>
+                        <span class="countdown-label">Menit</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="cd-seconds">00</span>
+                        <span class="countdown-label">Detik</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- ==============================
+             SECTION: WEDDING EVENT
+             Detail Akad & Resepsi
+             ============================== -->
+        <section id="section-event" class="section section-ivory">
+            <div class="section-inner">
+                <div class="reveal">
+                    <div class="section-label">Wedding Ceremony</div>
+                    <div class="section-title-script">Wedding Event</div>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="event-cards">
+                    <!-- ==============================
+                         CARD: AKAD NIKAH
+                         ============================== -->
+                    <div class="event-card reveal-left">
+                        <div class="arabic-arch-accent">
+                            <svg viewBox="0 0 120 28" fill="none" class="gold-arch-svg">
+                                <path d="M60 2 C 52 12, 40 18, 0 18 L 0 20 L 120 20 L 120 18 C 80 18, 68 12, 60 2 Z"
+                                    fill="#C9A96E" opacity="0.65" />
+                                <circle cx="60" cy="5" r="2.5" fill="#C9A96E" />
+                            </svg>
+                        </div>
+                        <div class="event-card-title">Akad Nikah</div>
+
+                        <div class="event-detail">
+                            <svg class="event-detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            <div class="event-detail-text">
+                                <strong id="akad-day">[ISI NANTI]</strong>
+                                <span id="akad-date">[ISI NANTI]</span>
+                            </div>
+                        </div>
+
+                        <div class="event-detail">
+                            <svg class="event-detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            <div class="event-detail-text">
+                                <strong>Pukul</strong>
+                                <span id="akad-time">[ISI NANTI]</span>
+                            </div>
+                        </div>
+
+                        <div class="event-detail">
+                            <svg class="event-detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <div class="event-detail-text">
+                                <strong id="akad-venue">[ISI NANTI]</strong>
+                                <span id="akad-address">[ISI NANTI]</span>
+                            </div>
+                        </div>
+
+                        <a class="btn-maps" id="akad-maps-btn" href="#" target="_blank" rel="noopener"
+                            style="display:none;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Lihat Lokasi
+                        </a>
+                    </div>
+
+                    <!-- ==============================
+                         CARD: RESEPSI
+                         ============================== -->
+                    <div class="event-card reveal-right">
+                        <div class="arabic-arch-accent">
+                            <svg viewBox="0 0 120 28" fill="none" class="gold-arch-svg">
+                                <path d="M60 2 C 52 12, 40 18, 0 18 L 0 20 L 120 20 L 120 18 C 80 18, 68 12, 60 2 Z"
+                                    fill="#C9A96E" opacity="0.65" />
+                                <circle cx="60" cy="5" r="2.5" fill="#C9A96E" />
+                            </svg>
+                        </div>
+                        <div class="event-card-title">Resepsi</div>
+
+                        <div class="event-detail">
+                            <svg class="event-detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            <div class="event-detail-text">
+                                <strong id="reception-day">[ISI NANTI]</strong>
+                                <span id="reception-date">[ISI NANTI]</span>
+                            </div>
+                        </div>
+
+                        <div class="event-detail">
+                            <svg class="event-detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            <div class="event-detail-text">
+                                <strong>Pukul</strong>
+                                <span id="reception-time">[ISI NANTI]</span>
+                            </div>
+                        </div>
+
+                        <div class="event-detail">
+                            <svg class="event-detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <div class="event-detail-text">
+                                <strong id="reception-venue">[ISI NANTI]</strong>
+                                <span id="reception-address">[ISI NANTI]</span>
+                            </div>
+                        </div>
+
+                        <a class="btn-maps" id="reception-maps-btn" href="#" target="_blank" rel="noopener"
+                            style="display:none;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Lihat Lokasi
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==============================
+             SECTION: GALLERY
+             Galeri foto momen pasangan
+             ============================== -->
+        <section id="section-gallery" class="section section-cream">
+            <div class="section-inner">
+                <div class="reveal">
+                    <div class="section-label">Gallery</div>
+                    <div class="section-title-script">Our Moments</div>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="gallery-grid" id="gallery-grid">
+                    <!-- Gallery items akan di-generate oleh JavaScript dari weddingData.gallery -->
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <!-- ==============================
+             SECTION: WEDDING GIFT
+             Amplop digital / rekening
+             ============================== -->
+        <section id="section-gift" class="section section-cream">
+            <div class="section-inner">
+                <div class="reveal">
+                    <div class="section-label">Wedding Gift</div>
+                    <div class="section-title-script">Love Gift</div>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="reveal delay-1">
+                    <p class="gift-intro">
+                        Doa restu dan kehadiran Anda merupakan hadiah terindah bagi kami.
+                        Jika ingin memberikan tanda kasih, kami menyediakan Wedding Gift berikut.
+                    </p>
+                </div>
+
+                <div class="gift-cards" id="gift-cards">
+                    <!-- Gift cards akan di-generate oleh JavaScript dari weddingData.gift -->
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==============================
+             SECTION: RSVP & UCAPAN DOA
+             Elegant merged form
+             ============================== -->
+        <section id="section-rsvp" class="section section-maroon-tint">
+            <div class="section-inner">
+                <div class="reveal">
+                    <div class="section-label">Konfirmasi & Doa</div>
+                    <div class="section-title-script">RSVP & Ucapan</div>
+                    <div class="section-divider"></div>
+                    <p class="section-subtitle">Konfirmasi kehadiran Anda & sampaikan ucapan terbaik untuk kedua
+                        mempelai</p>
+                </div>
+
+                <form class="rsvp-wishes-form reveal delay-2" id="rsvp-form">
+                    <div class="rsvp-form-header">
+                        <div class="rsvp-form-header-ornament">✦</div>
+                        <span>Konfirmasi & Doa Restu</span>
+                        <div class="rsvp-form-header-ornament">✦</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rsvp-name">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" style="vertical-align: -2px; margin-right: 4px;">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            Nama Lengkap
+                        </label>
+                        <input type="text" id="rsvp-name" placeholder="Masukkan nama lengkap Anda" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" style="vertical-align: -2px; margin-right: 4px;">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            Konfirmasi Kehadiran
+                        </label>
+                        <div class="attendance-radio-group">
+                            <label class="attendance-radio">
+                                <input type="radio" name="attendance" value="hadir" id="rsvp-attendance-hadir">
+                                <span class="attendance-radio-box attendance-hadir">
+                                    <span class="attendance-radio-icon">✓</span>
+                                    <span class="attendance-radio-text">Hadir</span>
+                                </span>
+                            </label>
+                            <label class="attendance-radio">
+                                <input type="radio" name="attendance" value="tidak_hadir" id="rsvp-attendance-tidak">
+                                <span class="attendance-radio-box attendance-tidak">
+                                    <span class="attendance-radio-icon">✗</span>
+                                    <span class="attendance-radio-text">Tidak Hadir</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rsvp-message">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" style="vertical-align: -2px; margin-right: 4px;">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                            Ucapan & Doa Restu
+                        </label>
+                        <textarea id="rsvp-message" placeholder="Tulis ucapan dan doa terbaik untuk kedua mempelai..."
+                            rows="4" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <span class="btn-submit-icon">✦</span>
+                        Kirim Doa Restu
+                        <span class="btn-submit-icon">✦</span>
+                    </button>
+
+                    <div class="form-footer-ornament">
+                        <span class="form-ornament-line"></span>
+                        <span class="form-ornament-star">❦</span>
+                        <span class="form-ornament-line"></span>
+                    </div>
+                </form>
+
+                <div class="wishes-section-header reveal delay-3">
+                    <div class="wishes-header-line"></div>
+                    <div class="wishes-count" id="wishes-count">
+                        <span class="wishes-count-icon">💌</span> 0 Ucapan & Doa
+                    </div>
+                    <div class="wishes-header-line"></div>
+                </div>
+
+                <div class="wishes-list reveal delay-3" id="wishes-list">
+                    <!-- Ucapan akan muncul di sini -->
+                </div>
+
+                <button class="btn-load-more" id="btn-load-wishes" style="display:none;">
+                    Lihat Ucapan Lainnya
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+
+                <div class="rsvp-export-wrapper" style="margin-top: 24px; text-align: center;">
+                    <button type="button" id="btn-export-csv" class="btn-export-spreadsheet">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px;">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        <span>Download Rekap RSVP (Excel / .csv)</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==============================
+             SECTION: PENUTUP / CLOSING
+             ============================== -->
+        <section id="section-closing" class="section">
+            <div class="section-inner">
+                <div class="reveal">
+                    <div class="section-label">Thank You</div>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="reveal delay-1">
+                    <div class="closing-thank">Terima Kasih</div>
+                </div>
+
+                <div class="reveal delay-2">
+                    <div class="closing-message">
+                        Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
+                        Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu
+                        kepada kedua mempelai.
+                    </div>
+                </div>
+
+                <div class="reveal delay-3">
+                    <div class="section-divider" style="margin: 32px auto;"></div>
+                    <div class="closing-names">Nadira & Fagih</div>
+                </div>
+
+                <div class="reveal delay-4">
+                    <div class="closing-hashtag">#NadiraFagih</div>
+                </div>
+
+                <div class="reveal delay-5">
+                    <div class="closing-footer">
+                        With Love, Nadira & Fagih © 2026
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main><!-- END #main-invitation -->
+
+
+    <!-- ==============================
+         LIGHTBOX GALLERY
+         Modal fullscreen untuk melihat foto
+         ============================== -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()" aria-label="Tutup">✕</button>
+        <button class="lightbox-nav lightbox-prev" onclick="prevLightbox()" aria-label="Foto Sebelumnya">❮</button>
+        <img class="lightbox-img" id="lightbox-img" src="" alt="Gallery Photo">
+        <button class="lightbox-nav lightbox-next" onclick="nextLightbox()" aria-label="Foto Selanjutnya">❯</button>
+    </div>
+
+
+    <!-- ==============================
+         FLOATING MUSIC BUTTON
+         Tombol musik yang mengambang di kanan bawah
+         ============================== -->
+    <button class="music-btn" aria-label="Toggle Music">
+        <div class="music-bars">
+            <div class="music-bar" style="height: 4px;"></div>
+            <div class="music-bar" style="height: 4px;"></div>
+            <div class="music-bar" style="height: 4px;"></div>
+            <div class="music-bar" style="height: 4px;"></div>
+        </div>
+    </button>
+
+
+    <!-- ==============================
+         FLOATING BOTTOM NAVIGATION (MOBILE)
+         Navigasi bawah khusus HP
+         ============================== -->
+    <nav class="bottom-nav" aria-label="Mobile Navigation">
+        <a class="bottom-nav-item" href="#section-ayat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <span>Home</span>
+        </a>
+        <a class="bottom-nav-item" href="#section-couple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                </path>
+            </svg>
+            <span>Mempelai</span>
+        </a>
+        <a class="bottom-nav-item" href="#section-event">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span>Acara</span>
+        </a>
+        <a class="bottom-nav-item" href="#section-gallery">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+            </svg>
+            <span>Gallery</span>
+        </a>
+        <a class="bottom-nav-item" href="#section-gift">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 12 20 22 4 22 4 12"></polyline>
+                <rect x="2" y="7" width="20" height="5"></rect>
+                <line x1="12" y1="22" x2="12" y2="7"></line>
+                <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+                <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+            </svg>
+            <span>Gift</span>
+        </a>
+    </nav>
+
+
+    <!-- ==============================
+         DESKTOP NAVIGATION
+         Navigasi atas untuk desktop
+         ============================== -->
+    <nav class="desktop-nav" aria-label="Desktop Navigation">
+        <a class="desktop-nav-item" href="#section-ayat">Home</a>
+        <a class="desktop-nav-item" href="#section-couple">Mempelai</a>
+        <a class="desktop-nav-item" href="#section-countdown">Countdown</a>
+        <a class="desktop-nav-item" href="#section-event">Acara</a>
+        <a class="desktop-nav-item" href="#section-gallery">Gallery</a>
+        <a class="desktop-nav-item" href="#section-gift">Gift</a>
+        <a class="desktop-nav-item" href="#section-rsvp">RSVP & Doa</a>
+    </nav>
+
+
+    <!-- ==============================
+         JAVASCRIPT
+         Dimuat di akhir untuk performa
+         ============================== -->
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Firebase config tersimpan di script.js lewat window.firebaseConfig
+    </script>
+    <script src="js/firebase-init.js" defer></script>
+    <script src="js/script.js?v=8" defer></script>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0D3B4F;stop-opacity:1"/>
+      <stop offset="40%" style="stop-color:#1A5E6B;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#0A4C5A;stop-opacity:1"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" style="stop-color:#E8C56D;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#0D3B4F;stop-opacity:0"/>
+    </radialGradient>
+    <pattern id="p1" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+      <g stroke="#E8C56D" fill="none" opacity="0.15">
+        <rect x="35" y="35" width="30" height="30" stroke-width="0.8"/>
+        <rect x="35" y="35" width="30" height="30" stroke-width="0.8" transform="rotate(45 50 50)"/>
+        <circle cx="50" cy="50" r="22" stroke-width="0.6"/>
+        <circle cx="50" cy="50" r="34" stroke-width="0.4" stroke-dasharray="2,2"/>
+      </g>
+    </pattern>
+  </defs>
+  <rect width="1440" height="900" fill="url(#g1)"/>
+  <rect width="1440" height="900" fill="url(#glow1)"/>
+  <rect width="1440" height="900" fill="url(#p1)"/>
+  <path d="M 620,40 C 660,10 720,0 720,0 C 720,0 780,10 820,40" fill="none" stroke="#E8C56D" stroke-width="1" opacity="0.3"/>
+  <path d="M 640,50 C 670,20 720,10 720,10 C 720,10 770,20 800,50" fill="none" stroke="#E8C56D" stroke-width="0.6" opacity="0.2"/>
+  <path d="M 714,8 A 5,5 0 1,0 720,14 A 4,4 0 1,1 714,8 Z" fill="#E8C56D" opacity="0.4"/>
+  <rect x="16" y="16" width="1408" height="868" fill="none" stroke="#E8C56D" stroke-width="0.8" opacity="0.15" rx="12"/>
+</svg>

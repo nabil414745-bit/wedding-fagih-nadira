@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+  <defs>
+    <linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0B2E1F;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#14472F;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#0E3826;stop-opacity:1"/>
+    </linearGradient>
+    <radialGradient id="glow5" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" style="stop-color:#E8C56D;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#0B2E1F;stop-opacity:0"/>
+    </radialGradient>
+    <pattern id="p5" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+      <g stroke="#E8C56D" fill="none" opacity="0.12">
+        <polygon points="50,15 57,35 78,35 61,48 67,68 50,55 33,68 39,48 22,35 43,35" stroke-width="0.7"/>
+        <circle cx="50" cy="50" r="38" stroke-width="0.5" stroke-dasharray="2,3"/>
+      </g>
+    </pattern>
+  </defs>
+  <rect width="1440" height="900" fill="url(#g5)"/>
+  <rect width="1440" height="900" fill="url(#glow5)"/>
+  <rect width="1440" height="900" fill="url(#p5)"/>
+  <path d="M 620,30 C 660,5 720,0 720,0 C 720,0 780,5 820,30" fill="none" stroke="#E8C56D" stroke-width="1" opacity="0.25"/>
+  <path d="M 714,5 A 5,5 0 1,0 720,12 A 4,4 0 1,1 714,5 Z" fill="#E8C56D" opacity="0.35"/>
+  <rect x="16" y="16" width="1408" height="868" fill="none" stroke="#E8C56D" stroke-width="0.8" opacity="0.15" rx="12"/>
+</svg>

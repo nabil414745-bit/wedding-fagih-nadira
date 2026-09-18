@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <defs>
+    <!-- Background Base Gradient -->
+    <linearGradient id="coverGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E140B;stop-opacity:1" />
+      <stop offset="35%" style="stop-color:#322214;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#24180E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#140C06;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Radial Gold Glow -->
+    <radialGradient id="radialGold" cx="50%" cy="38%" r="55%">
+      <stop offset="0%" style="stop-color:#C9A96E;stop-opacity:0.25" />
+      <stop offset="40%" style="stop-color:#A07D3F;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#1E140B;stop-opacity:0" />
+    </radialGradient>
+
+    <!-- Secondary Soft Light -->
+    <radialGradient id="radialTopLight" cx="50%" cy="0%" r="40%">
+      <stop offset="0%" style="stop-color:#EAD0A3;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:transparent" />
+    </radialGradient>
+
+    <!-- Gold Ornament Pattern -->
+    <pattern id="goldDots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1" fill="#C9A96E" opacity="0.12"/>
+    </pattern>
+  </defs>
+
+  <!-- Base Fill -->
+  <rect width="1080" height="1920" fill="url(#coverGradient)" />
+  <rect width="1080" height="1920" fill="url(#radialGold)" />
+  <rect width="1080" height="1920" fill="url(#radialTopLight)" />
+  <rect width="1080" height="1920" fill="url(#goldDots)" />
+
+  <!-- Soft Bokeh Circles -->
+  <circle cx="200" cy="350" r="180" fill="#C9A96E" opacity="0.04" />
+  <circle cx="880" cy="500" r="220" fill="#EAD0A3" opacity="0.03" />
+  <circle cx="540" cy="900" r="300" fill="#C9A96E" opacity="0.03" />
+  <circle cx="300" cy="1400" r="200" fill="#A07D3F" opacity="0.04" />
+  <circle cx="800" cy="1600" r="160" fill="#EAD0A3" opacity="0.03" />
+
+  <!-- Aesthetic Gold Arches & Frames -->
+  <path d="M 140,240 Q 540,80 940,240 L 940,1680 Q 540,1840 140,1680 Z" fill="none" stroke="#C9A96E" stroke-width="1.5" opacity="0.25" stroke-dasharray="8,4" />
+  <path d="M 160,260 Q 540,105 920,260 L 920,1660 Q 540,1815 160,1660 Z" fill="none" stroke="#C9A96E" stroke-width="0.8" opacity="0.18" />
+
+  <!-- Geometric Diamond Accents -->
+  <polygon points="540,140 550,155 540,170 530,155" fill="#C9A96E" opacity="0.4"/>
+  <polygon points="540,1750 550,1765 540,1780 530,1765" fill="#C9A96E" opacity="0.4"/>
+</svg>

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="2560" viewBox="0 0 1440 2560">
+  <defs>
+    <!-- Bright Luminous Ivory & Warm Gold Base -->
+    <linearGradient id="brightBgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFCF7;stop-opacity:1" />
+      <stop offset="20%" style="stop-color:#FAF4E8;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFFDF9;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#F8F0E2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFFCF7;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Radiant Gold Sunlight Spotlight -->
+    <radialGradient id="sunGlow" cx="50%" cy="15%" r="65%">
+      <stop offset="0%" style="stop-color:#E6C887;stop-opacity:0.25" />
+      <stop offset="40%" style="stop-color:#D4B475;stop-opacity:0.12" />
+      <stop offset="100%" style="stop-color:#FFFCF7;stop-opacity:0" />
+    </radialGradient>
+
+    <!-- Soft Ambient Warmth Center -->
+    <radialGradient id="centerWarmth" cx="50%" cy="60%" r="55%">
+      <stop offset="0%" style="stop-color:#E8D2A6;stop-opacity:0.18" />
+      <stop offset="100%" style="stop-color:#FFFCF7;stop-opacity:0" />
+    </radialGradient>
+
+    <!-- Delicate Gold 8-Pointed Star Geometric Pattern -->
+    <pattern id="brightArabicPattern" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
+      <g stroke="#C9A96E" fill="none" opacity="0.18">
+        <!-- Center Star -->
+        <rect x="45" y="45" width="30" height="30" stroke-width="0.8" />
+        <rect x="45" y="45" width="30" height="30" stroke-width="0.8" transform="rotate(45 60 60)" />
+        <!-- Concentric Circles -->
+        <circle cx="60" cy="60" r="26" stroke-width="0.6" />
+        <circle cx="60" cy="60" r="38" stroke-width="0.5" stroke-dasharray="2,2" />
+        <!-- Grid Connecting Lines -->
+        <line x1="0" y1="60" x2="120" y2="60" stroke-width="0.5" />
+        <line x1="60" y1="0" x2="60" y2="120" stroke-width="0.5" />
+      </g>
+    </pattern>
+
+    <!-- Bright Arabesque Grand Arch Silhouette -->
+    <g id="brightArch">
+      <path d="M 0,180 C 140,60 300,0 460,0 C 620,0 780,60 920,180 L 920,450 L 0,450 Z" fill="none" stroke="#C9A96E" stroke-width="1.2" opacity="0.2" />
+      <path d="M 20,190 C 150,80 300,16 460,16 C 620,16 770,80 900,190" fill="none" stroke="#C9A96E" stroke-width="0.6" opacity="0.15" stroke-dasharray="4,4" />
+      <!-- Arch Crescent Accent -->
+      <path d="M 454,4 A 6,6 0 1,0 460,12 A 4.5,4.5 0 1,1 454,4 Z" fill="#C9A96E" opacity="0.4" />
+    </g>
+
+    <!-- Side Crescent Moon Emblems -->
+    <g id="brightCrescentEmblem">
+      <circle cx="60" cy="60" r="36" fill="none" stroke="#C9A96E" stroke-width="0.8" opacity="0.22" />
+      <path d="M 54,38 A 20,20 0 1,0 72,72 A 16,16 0 1,1 54,38 Z" fill="#C9A96E" opacity="0.28" />
+      <polygon points="74,45 76,50 81,50 77,54 78,59 74,56 69,59 71,54 67,50 72,50" fill="#C9A96E" opacity="0.35" />
+    </g>
+  </defs>
+
+  <!-- Base Bright Layers -->
+  <rect width="1440" height="2560" fill="url(#brightBgGrad)" />
+  <rect width="1440" height="2560" fill="url(#sunGlow)" />
+  <rect width="1440" height="2560" fill="url(#centerWarmth)" />
+  <rect width="1440" height="2560" fill="url(#brightArabicPattern)" />
+
+  <!-- Arches Watermark -->
+  <use href="#brightArch" x="260" y="60" />
+  <use href="#brightArch" x="260" y="1000" />
+  <use href="#brightArch" x="260" y="1900" />
+
+  <!-- Crescent Emblems Watermark (Side Margin Columns) -->
+  <use href="#brightCrescentEmblem" x="20" y="200" />
+  <use href="#brightCrescentEmblem" x="1300" y="200" />
+  <use href="#brightCrescentEmblem" x="20" y="800" />
+  <use href="#brightCrescentEmblem" x="1300" y="800" />
+  <use href="#brightCrescentEmblem" x="20" y="1400" />
+  <use href="#brightCrescentEmblem" x="1300" y="1400" />
+  <use href="#brightCrescentEmblem" x="20" y="2000" />
+  <use href="#brightCrescentEmblem" x="1300" y="2000" />
+
+  <!-- Thin Delicate Gold Inner Frame -->
+  <rect x="24" y="24" width="1392" height="2512" fill="none" stroke="#C9A96E" stroke-width="1" opacity="0.2" rx="16" />
+</svg>

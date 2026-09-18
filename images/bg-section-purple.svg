@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+  <defs>
+    <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A0A2E;stop-opacity:1"/>
+      <stop offset="40%" style="stop-color:#2D1548;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#1E0E36;stop-opacity:1"/>
+    </linearGradient>
+    <radialGradient id="glow3" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" style="stop-color:#E8C56D;stop-opacity:0.22"/>
+      <stop offset="100%" style="stop-color:#1A0A2E;stop-opacity:0"/>
+    </radialGradient>
+    <pattern id="p3" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+      <g stroke="#E8C56D" fill="none" opacity="0.12">
+        <circle cx="40" cy="40" r="18" stroke-width="0.8"/>
+        <circle cx="40" cy="40" r="28" stroke-width="0.5"/>
+        <line x1="0" y1="40" x2="80" y2="40" stroke-width="0.4"/>
+        <line x1="40" y1="0" x2="40" y2="80" stroke-width="0.4"/>
+        <line x1="0" y1="0" x2="80" y2="80" stroke-width="0.3"/>
+        <line x1="80" y1="0" x2="0" y2="80" stroke-width="0.3"/>
+      </g>
+    </pattern>
+  </defs>
+  <rect width="1440" height="900" fill="url(#g3)"/>
+  <rect width="1440" height="900" fill="url(#glow3)"/>
+  <rect width="1440" height="900" fill="url(#p3)"/>
+  <path d="M 36,16 A 10,10 0 1,0 50,30 A 8,8 0 1,1 36,16 Z" fill="#E8C56D" opacity="0.25" transform="translate(30,20)"/>
+  <polygon points="68,18 71,26 80,26 73,31 76,39 68,34 60,39 63,31 56,26 65,26" fill="#E8C56D" opacity="0.3" transform="translate(30,20)"/>
+  <path d="M 36,16 A 10,10 0 1,0 50,30 A 8,8 0 1,1 36,16 Z" fill="#E8C56D" opacity="0.25" transform="translate(1300,20)"/>
+  <polygon points="68,18 71,26 80,26 73,31 76,39 68,34 60,39 63,31 56,26 65,26" fill="#E8C56D" opacity="0.3" transform="translate(1300,20)"/>
+</svg>

@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <!-- Gold Gradient -->
+    <linearGradient id="goldLine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5C378" stop-opacity="0.22"/>
+      <stop offset="50%" stop-color="#C9A96E" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#AA820A" stop-opacity="0.22"/>
+    </linearGradient>
+    <linearGradient id="goldDot" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFDF88" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#C9A96E" stop-opacity="0.15"/>
+    </linearGradient>
+  </defs>
+
+  <g stroke="url(#goldLine)" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Center Kawung / Floral Motif -->
+    <circle cx="100" cy="100" r="14" stroke-dasharray="3,3" stroke-width="0.8"/>
+    <circle cx="100" cy="100" r="6" fill="url(#goldDot)" stroke-width="0.5"/>
+
+    <!-- 4 Petal Kawung Ellipses in Center -->
+    <path d="M100,55 C125,75 125,125 100,145 C75,125 75,75 100,55 Z" stroke-width="1.2"/>
+    <path d="M55,100 C75,125 125,125 145,100 C125,75 75,75 55,100 Z" stroke-width="1.2"/>
+
+    <!-- Inner Filigree Swirls Center -->
+    <path d="M100,75 Q115,85 100,100 Q85,115 100,125" stroke-width="0.9" opacity="0.8"/>
+    <path d="M75,100 Q85,115 100,100 Q115,85 125,100" stroke-width="0.9" opacity="0.8"/>
+
+    <!-- Corner 1: Top-Left (0,0) -->
+    <path d="M0,-45 C25,-25 25,25 0,45 C-25,25 -25,-25 0,-45 Z" stroke-width="1.2"/>
+    <path d="M-45,0 C-25,25 25,25 45,0 C25,-25 -25,-25 -45,0 Z" stroke-width="1.2"/>
+    <circle cx="0" cy="0" r="8" fill="url(#goldDot)" stroke-width="0.6"/>
+
+    <!-- Corner 2: Top-Right (200,0) -->
+    <path d="M200,-45 C225,-25 225,25 200,45 C175,25 175,-25 200,-45 Z" stroke-width="1.2"/>
+    <path d="M155,0 C175,25 225,25 245,0 C225,-25 175,-25 155,0 Z" stroke-width="1.2"/>
+    <circle cx="200" cy="0" r="8" fill="url(#goldDot)" stroke-width="0.6"/>
+
+    <!-- Corner 3: Bottom-Left (0,200) -->
+    <path d="M0,155 C25,175 25,225 0,245 C-25,225 -25,175 0,155 Z" stroke-width="1.2"/>
+    <path d="M-45,200 C-25,225 25,225 45,200 C25,175 -25,175 -45,200 Z" stroke-width="1.2"/>
+    <circle cx="0" cy="200" r="8" fill="url(#goldDot)" stroke-width="0.6"/>
+
+    <!-- Corner 4: Bottom-Right (200,200) -->
+    <path d="M200,155 C225,175 225,225 200,245 C175,225 175,175 200,155 Z" stroke-width="1.2"/>
+    <path d="M155,200 C175,225 225,225 245,200 C225,175 175,175 155,200 Z" stroke-width="1.2"/>
+    <circle cx="200" cy="200" r="8" fill="url(#goldDot)" stroke-width="0.6"/>
+
+    <!-- Truntum Floral Accents at (100, 0), (0, 100), (200, 100), (100, 200) -->
+    <!-- Top Mid -->
+    <circle cx="100" cy="0" r="4" fill="url(#goldDot)"/>
+    <path d="M90,0 Q100,-10 110,0 Q100,10 90,0 Z" stroke-width="0.9"/>
+    <path d="M100,-10 Q110,0 100,10 Q90,0 100,-10 Z" stroke-width="0.9"/>
+
+    <!-- Bottom Mid -->
+    <circle cx="100" cy="200" r="4" fill="url(#goldDot)"/>
+    <path d="M90,200 Q100,190 110,200 Q100,210 90,200 Z" stroke-width="0.9"/>
+    <path d="M100,190 Q110,200 100,210 Q90,200 100,190 Z" stroke-width="0.9"/>
+
+    <!-- Left Mid -->
+    <circle cx="0" cy="100" r="4" fill="url(#goldDot)"/>
+    <path d="M0,90 Q10,100 0,110 Q-10,100 0,90 Z" stroke-width="0.9"/>
+    <path d="M-10,100 Q0,110 10,100 Q0,90 -10,100 Z" stroke-width="0.9"/>
+
+    <!-- Right Mid -->
+    <circle cx="200" cy="100" r="4" fill="url(#goldDot)"/>
+    <path d="M200,90 Q210,100 200,110 Q190,100 200,90 Z" stroke-width="0.9"/>
+    <path d="M190,100 Q200,110 210,100 Q200,90 190,100 Z" stroke-width="0.9"/>
+
+    <!-- Diagonal Batik Connecting Ornaments (Isen-isen) -->
+    <circle cx="50" cy="50" r="2" fill="url(#goldDot)"/>
+    <path d="M42,50 Q50,42 58,50 Q50,58 42,50" stroke-width="0.7"/>
+    
+    <circle cx="150" cy="50" r="2" fill="url(#goldDot)"/>
+    <path d="M142,50 Q150,42 158,50 Q150,58 142,50" stroke-width="0.7"/>
+
+    <circle cx="50" cy="150" r="2" fill="url(#goldDot)"/>
+    <path d="M42,150 Q50,142 58,150 Q50,158 42,150" stroke-width="0.7"/>
+
+    <circle cx="150" cy="150" r="2" fill="url(#goldDot)"/>
+    <path d="M142,150 Q150,142 158,150 Q150,158 142,150" stroke-width="0.7"/>
+  </g>
+</svg>
