@@ -164,7 +164,7 @@ const weddingData = {
     // NAMA TAMU DEFAULT
     // Jika URL tidak punya ?to=NamaTamu
     // ==============================
-    defaultGuest: "Man 13"
+    defaultGuest: "Tamu Undangan"
 };
 
 
