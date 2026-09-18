@@ -962,12 +962,17 @@ function initRSVP() {
         saveRSVP(formData);
         saveWish(formData);
 
-        // Kirim ke Firebase (jika siap)
-        if (window.firebaseReady) {
-            Promise.all([
-                window.fbSaveRSVP(formData),
-                window.fbSaveWish(formData)
-            ]).catch(err => console.warn('[Firebase] Gagal simpan:', err));
+        // Kirim ke JSONBin/Firebase (jika siap)
+        if (window.jsonbinReady || window.firebaseReady) {
+            window.fbSaveWish(formData)
+                .then(allWishes => {
+                    // Jika dapat data terbaru dari cloud, langsung render
+                    if (allWishes && allWishes.length > 0) {
+                        firebaseWishesCache = allWishes;
+                        renderWishes(allWishes, false);
+                    }
+                })
+                .catch(err => console.warn('[JSONBin] Gagal simpan:', err));
         }
 
         // Kirim ke Google Spreadsheet (jika URL sudah diisi)

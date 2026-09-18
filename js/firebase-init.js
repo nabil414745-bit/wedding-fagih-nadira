@@ -1,140 +1,213 @@
 // ============================================================
-// FIREBASE INIT — Nadira & Fagih Wedding
-// File: js/firebase-init.js
+// JSONBIN.IO INIT — Nadira & Fagih Wedding
+// File: js/firebase-init.js  (diganti ke JSONBin - lebih mudah!)
 //
-// CARA SETUP FIREBASE:
-// 1. Buka https://console.firebase.google.com
-// 2. Klik "Add project" → beri nama (misal: "nadira-fagih-wedding")
-// 3. Setelah project dibuat, klik ikon Web (</>)
-// 4. Register app, copy firebaseConfig yang diberikan, paste ke bawah
-// 5. Di sidebar Firebase Console → Build → Realtime Database
-// 6. Klik "Create Database" → pilih lokasi (Singapore) → "Start in test mode"
-// 7. Selesai! Data RSVP akan tersimpan permanen di Firebase
+// CARA SETUP (2 MENIT):
+// 1. Buka https://jsonbin.io
+// 2. Klik "Create Account" → login pakai Google
+// 3. Setelah login → klik nama profil pojok kanan atas → "API Keys"
+// 4. Copy "Secret Key" yang tertera
+// 5. Paste di bawah ini pada bagian: apiKey: "PASTE_DI_SINI"
 // ============================================================
 
 // ==============================
-// KONFIGURASI FIREBASE
-// Ganti dengan config project Firebase Anda
+// KONFIGURASI JSONBIN
 // ==============================
-window.firebaseConfig = {
-    apiKey: "",
-    authDomain: "",
-    databaseURL: "",
-    projectId: "",
-    storageBucket: "",
-    messagingSenderId: "",
-    appId: ""
+window.jsonbinConfig = {
+    apiKey: "",          // ← Paste Secret Key dari jsonbin.io di sini
+    binId: "",           // ← Akan otomatis terisi setelah pertama kali ada data masuk
+    collectionName: "wedding-rsvp-nadira-fagih"
 };
 
 // ==============================
-// STATUS FIREBASE
+// STATUS JSONBIN
 // ==============================
+window.jsonbinReady = false;
+window.jsonbinBinId = "";
+
+// Alias agar script.js tetap kompatibel
 window.firebaseReady = false;
-window.firebaseDB = null;
 
 // ==============================
-// INISIALISASI FIREBASE
-// Hanya jalan jika config sudah diisi
+// INISIALISASI JSONBIN
 // ==============================
-(function initFirebase() {
-    const config = window.firebaseConfig;
-
-    // Cek apakah config sudah diisi
-    if (!config.apiKey || !config.databaseURL) {
-        console.info('[Firebase] Config belum diisi, data RSVP hanya disimpan di localStorage.');
+(function initJsonBin() {
+    const key = window.jsonbinConfig.apiKey;
+    if (!key || key.trim() === '') {
+        console.info('[JSONBin] API Key belum diisi, data RSVP hanya disimpan di localStorage.');
         return;
     }
 
-    // Load Firebase SDK secara dinamis
-    const scriptApp = document.createElement('script');
-    scriptApp.src = 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js';
-    scriptApp.onload = function () {
-        const scriptDB = document.createElement('script');
-        scriptDB.src = 'https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js';
-        scriptDB.onload = function () {
-            try {
-                firebase.initializeApp(config);
-                window.firebaseDB = firebase.database();
-                window.firebaseReady = true;
-                console.info('[Firebase] Berhasil terhubung ke Realtime Database.');
+    window.jsonbinReady = true;
+    window.firebaseReady = true; // alias agar script.js tetap jalan
 
-                // Dispatch event agar script.js tahu Firebase sudah siap
-                document.dispatchEvent(new Event('firebase-ready'));
-            } catch (e) {
-                console.warn('[Firebase] Gagal inisialisasi:', e);
-            }
-        };
-        document.head.appendChild(scriptDB);
-    };
-    document.head.appendChild(scriptApp);
+    // Cek apakah Bin ID sudah ada di localStorage
+    const savedBinId = localStorage.getItem('wedding-jsonbin-id');
+    if (savedBinId) {
+        window.jsonbinBinId = savedBinId;
+        window.jsonbinConfig.binId = savedBinId;
+        console.info('[JSONBin] Menggunakan Bin ID:', savedBinId);
+    }
+
+    // Dispatch event agar script.js tahu JSONBin sudah siap
+    document.addEventListener('DOMContentLoaded', function() {
+        document.dispatchEvent(new Event('firebase-ready'));
+    });
+    if (document.readyState !== 'loading') {
+        setTimeout(() => document.dispatchEvent(new Event('firebase-ready')), 100);
+    }
+
+    console.info('[JSONBin] Siap! Data RSVP akan tersimpan di cloud.');
 })();
 
+
 // ==============================
-// FUNGSI UTILITAS FIREBASE
+// FUNGSI UTILITAS JSONBIN
 // ==============================
+const JSONBIN_BASE = 'https://api.jsonbin.io/v3';
 
 /**
- * Simpan data RSVP ke Firebase
- * @param {Object} data - { name, attendance, message, timestamp }
- * @returns {Promise}
+ * Buat bin baru atau dapatkan semua ucapan
  */
-window.fbSaveRSVP = function (data) {
-    if (!window.firebaseReady || !window.firebaseDB) {
-        return Promise.resolve(null);
+async function jsonbinGetWishes() {
+    const key = window.jsonbinConfig.apiKey;
+    const binId = window.jsonbinConfig.binId;
+
+    if (!binId) return [];
+
+    try {
+        const res = await fetch(`${JSONBIN_BASE}/b/${binId}/latest`, {
+            headers: { 'X-Master-Key': key }
+        });
+        const data = await res.json();
+        return data.record?.wishes || [];
+    } catch (e) {
+        console.warn('[JSONBin] Gagal ambil data:', e);
+        return [];
     }
-    const ref = window.firebaseDB.ref('rsvp');
-    return ref.push(data);
-};
+}
 
-/**
- * Simpan ucapan ke Firebase
- * @param {Object} data - { name, attendance, message, timestamp }
- * @returns {Promise}
- */
-window.fbSaveWish = function (data) {
-    if (!window.firebaseReady || !window.firebaseDB) {
-        return Promise.resolve(null);
+async function jsonbinGetRSVP() {
+    const key = window.jsonbinConfig.apiKey;
+    const binId = window.jsonbinConfig.binId;
+
+    if (!binId) return [];
+
+    try {
+        const res = await fetch(`${JSONBIN_BASE}/b/${binId}/latest`, {
+            headers: { 'X-Master-Key': key }
+        });
+        const data = await res.json();
+        return data.record?.rsvp || [];
+    } catch (e) {
+        return [];
     }
-    const ref = window.firebaseDB.ref('wishes');
-    return ref.push(data);
-};
+}
 
 /**
- * Subscribe ke data ucapan secara real-time
- * @param {Function} callback - dipanggil setiap ada perubahan data
+ * Simpan data baru (tambah ke list)
  */
-window.fbListenWishes = function (callback) {
-    if (!window.firebaseReady || !window.firebaseDB) {
+async function jsonbinSave(formData) {
+    const key = window.jsonbinConfig.apiKey;
+    let binId = window.jsonbinConfig.binId;
+
+    try {
+        let currentWishes = [];
+        let currentRSVP = [];
+
+        if (binId) {
+            // Ambil data yang sudah ada
+            const res = await fetch(`${JSONBIN_BASE}/b/${binId}/latest`, {
+                headers: { 'X-Master-Key': key }
+            });
+            const existing = await res.json();
+            currentWishes = existing.record?.wishes || [];
+            currentRSVP = existing.record?.rsvp || [];
+        }
+
+        // Tambah data baru
+        currentWishes.unshift(formData);
+        currentRSVP.push(formData);
+
+        const newRecord = { wishes: currentWishes, rsvp: currentRSVP };
+
+        if (binId) {
+            // Update bin yang sudah ada
+            await fetch(`${JSONBIN_BASE}/b/${binId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Master-Key': key
+                },
+                body: JSON.stringify(newRecord)
+            });
+        } else {
+            // Buat bin baru
+            const res = await fetch(`${JSONBIN_BASE}/b`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Master-Key': key,
+                    'X-Bin-Name': 'wedding-nadira-fagih',
+                    'X-Bin-Private': 'false'
+                },
+                body: JSON.stringify(newRecord)
+            });
+            const created = await res.json();
+            binId = created.metadata?.id;
+            if (binId) {
+                window.jsonbinConfig.binId = binId;
+                window.jsonbinBinId = binId;
+                localStorage.setItem('wedding-jsonbin-id', binId);
+                console.info('[JSONBin] Bin baru dibuat:', binId);
+            }
+        }
+
+        return currentWishes;
+    } catch (e) {
+        console.warn('[JSONBin] Gagal simpan:', e);
         return null;
     }
-    const ref = window.firebaseDB.ref('wishes').orderByChild('timestamp');
-    ref.on('value', function (snapshot) {
-        const wishes = [];
-        snapshot.forEach(function (child) {
-            wishes.push({ key: child.key, ...child.val() });
-        });
-        // Urutkan terbaru di atas
-        wishes.reverse();
-        callback(wishes);
-    });
-    return ref;
+}
+
+// ==============================
+// ADAPTER untuk script.js
+// (menyesuaikan interface yang diharapkan script.js)
+// ==============================
+
+window.fbSaveRSVP = async function(data) {
+    // Simpan via JSONBin (gabung dengan wishes)
+    return Promise.resolve();
 };
 
-/**
- * Subscribe ke data RSVP secara real-time (untuk export)
- * @param {Function} callback
- */
-window.fbListenRSVP = function (callback) {
-    if (!window.firebaseReady || !window.firebaseDB) {
-        return null;
-    }
-    const ref = window.firebaseDB.ref('rsvp').orderByChild('timestamp');
-    ref.on('value', function (snapshot) {
-        const list = [];
-        snapshot.forEach(function (child) {
-            list.push({ key: child.key, ...child.val() });
-        });
-        callback(list);
+window.fbSaveWish = async function(data) {
+    return jsonbinSave(data);
+};
+
+window.fbListenWishes = function(callback) {
+    if (!window.jsonbinReady) return null;
+
+    // Load awal
+    jsonbinGetWishes().then(wishes => {
+        if (wishes.length > 0) callback(wishes);
     });
-    return ref;
+
+    // Poll setiap 30 detik untuk cek ucapan baru
+    const interval = setInterval(() => {
+        jsonbinGetWishes().then(wishes => {
+            callback(wishes);
+        });
+    }, 30000);
+
+    return interval;
+};
+
+window.fbListenRSVP = function(callback) {
+    if (!window.jsonbinReady) return null;
+
+    jsonbinGetRSVP().then(rsvp => {
+        if (rsvp.length > 0) callback(rsvp);
+    });
+
+    return null;
 };
