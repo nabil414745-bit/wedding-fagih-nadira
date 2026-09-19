@@ -114,8 +114,15 @@ const weddingData = {
         "images/gallery/photo-fagih-solo.png",
         "images/gallery/photo-02.jpg",
         "images/gallery/photo-11.jpg",
-        "images/gallery/photo-12.jpg"
+        "images/gallery/photo-12.jpg",
+        "images/gallery/photo-bunga.jpg"
     ],
+
+    // ==============================
+    // GALLERY WIDE ITEMS
+    // Index foto yang ingin tampil lebih lebar di desktop (span 2 kolom)
+    // ==============================
+    galleryWideItems: [6],
 
     // ==============================
     // EDIT VIDEO PREWEDDING
@@ -393,9 +400,11 @@ function populateGallery() {
     if (!container) return;
 
     container.innerHTML = '';
+    const wideItems = weddingData.galleryWideItems || [];
     weddingData.gallery.forEach((img, i) => {
         const el = document.createElement('div');
-        el.className = 'gallery-item reveal-scale';
+        const isWide = wideItems.includes(i);
+        el.className = 'gallery-item reveal-scale' + (isWide ? ' gallery-item-wide' : '');
         el.style.transitionDelay = (i * 0.05) + 's';
         el.setAttribute('data-index', i);
         el.innerHTML = `<img src="${img}" alt="Gallery ${i + 1}" loading="lazy">`;
