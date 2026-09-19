@@ -110,15 +110,9 @@ const weddingData = {
     // ==============================
     gallery: [
         "images/gallery/photo-01.jpg",
+        "images/gallery/photo-nadira-solo.png",
+        "images/gallery/photo-fagih-solo.png",
         "images/gallery/photo-02.jpg",
-        "images/gallery/photo-03.jpg",
-        "images/gallery/photo-04.jpg",
-        "images/gallery/photo-05.jpg",
-        "images/gallery/photo-06.jpg",
-        "images/gallery/photo-07.jpg",
-        "images/gallery/photo-08.jpg",
-        "images/gallery/photo-09.jpg",
-        "images/gallery/photo-10.jpg",
         "images/gallery/photo-11.jpg",
         "images/gallery/photo-12.jpg"
     ],
