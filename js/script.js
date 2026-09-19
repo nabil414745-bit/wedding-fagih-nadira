@@ -114,15 +114,15 @@ const weddingData = {
         "images/gallery/photo-fagih-solo.png",
         "images/gallery/photo-02.jpg",
         "images/gallery/photo-11.jpg",
-        "images/gallery/photo-12.jpg",
-        "images/gallery/photo-bunga.jpg"
+        "images/gallery/photo-bunga.jpg",
+        "images/gallery/photo-12.jpg"
     ],
 
     // ==============================
     // GALLERY WIDE ITEMS
     // Index foto yang ingin tampil lebih lebar di desktop (span 2 kolom)
     // ==============================
-    galleryWideItems: [6],
+    galleryWideItems: [5],
 
     // ==============================
     // EDIT VIDEO PREWEDDING
