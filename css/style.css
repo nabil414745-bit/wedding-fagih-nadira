@@ -1669,20 +1669,14 @@ body::before {
     aspect-ratio: 4/3;
 }
 
-/* Wide gallery item - portrait on mobile, landscape on desktop */
-.gallery-item-wide img {
-    aspect-ratio: 3/4;
-    object-position: center center;
+/* Wide gallery item - span 2 columns on ALL screen sizes */
+.gallery-item-wide {
+    grid-column: span 2;
 }
 
-/* Photo Bunga full-width on desktop */
-@media (min-width: 768px) {
-    .gallery-item-wide {
-        grid-column: span 2;
-    }
-    .gallery-item-wide img {
-        aspect-ratio: 4/3;
-    }
+.gallery-item-wide img {
+    aspect-ratio: 4/3;
+    object-position: center center;
 }
 
 .gallery-item:hover {
