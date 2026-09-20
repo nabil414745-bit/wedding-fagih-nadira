@@ -15,7 +15,7 @@
 // ==============================
 window.jsonbinConfig = {
     apiKey: "$2a$10$ut8ae20OZOwdzsh7UOCZxul8oaWlNoyz9AibpAc.QhNGDW7d3kkX2",
-    binId: "",           // ← Akan otomatis terisi setelah pertama kali ada data masuk
+    binId: "6aafb920ffd5d160531bce43",  // ← Bin ID tetap, semua device pakai ini
     collectionName: "wedding-rsvp-nadira-fagih"
 };
 
@@ -41,13 +41,11 @@ window.firebaseReady = false;
     window.jsonbinReady = true;
     window.firebaseReady = true; // alias agar script.js tetap jalan
 
-    // Cek apakah Bin ID sudah ada di localStorage
-    const savedBinId = localStorage.getItem('wedding-jsonbin-id');
-    if (savedBinId) {
-        window.jsonbinBinId = savedBinId;
-        window.jsonbinConfig.binId = savedBinId;
-        console.info('[JSONBin] Menggunakan Bin ID:', savedBinId);
-    }
+    // Bin ID sudah di-hardcode, simpan ke localStorage agar konsisten
+    const fixedBinId = window.jsonbinConfig.binId;
+    window.jsonbinBinId = fixedBinId;
+    localStorage.setItem('wedding-jsonbin-id', fixedBinId);
+    console.info('[JSONBin] Menggunakan Bin ID:', fixedBinId);
 
     // Dispatch event agar script.js tahu JSONBin sudah siap
     document.addEventListener('DOMContentLoaded', function() {
