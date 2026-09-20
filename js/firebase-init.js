@@ -192,12 +192,12 @@ window.fbListenWishes = function(callback) {
         if (wishes.length > 0) callback(wishes);
     });
 
-    // Poll setiap 30 detik untuk cek ucapan baru
+    // Poll setiap 10 detik untuk cek ucapan baru dari tamu lain
     const interval = setInterval(() => {
         jsonbinGetWishes().then(wishes => {
             callback(wishes);
         });
-    }, 30000);
+    }, 10000);
 
     return interval;
 };

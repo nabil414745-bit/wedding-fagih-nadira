@@ -159,7 +159,7 @@ const weddingData = {
     // agar data RSVP & ucapan otomatis masuk ke Google Sheet secara realtime
     // (Lihat panduan di file PANDUAN_GOOGLE_SPREADSHEET.md)
     // ==============================
-    googleSheetUrl: "",
+    googleSheetUrl: "https://script.google.com/macros/s/AKfycbygnUjkPLieQuaMo-0p7fLaI8mGY_b4WzVe_im65aZrHejAEDxPo5ugNfCDNgkcESq6/exec",
 
     // ==============================
     // NAMA TAMU DEFAULT
@@ -975,11 +975,23 @@ function initRSVP() {
         saveRSVP(formData);
         saveWish(formData);
 
-        // Kirim ke JSONBin/Firebase (jika siap)
+        // Langsung update cache dan render agar muncul segera di layar
+        // (tanpa menunggu respons JSONBin yang bisa lambat)
+        if (firebaseWishesCache !== null) {
+            // Tambahkan data baru ke depan cache yang ada
+            firebaseWishesCache = [formData, ...firebaseWishesCache];
+        } else {
+            // Belum ada cache, ambil semua dari localStorage
+            firebaseWishesCache = JSON.parse(localStorage.getItem('wedding-wishes') || '[]');
+        }
+        wishesShown = 0;
+        renderWishes(firebaseWishesCache, false);
+
+        // Kirim ke JSONBin/Firebase (jika siap) — di background
         if (window.jsonbinReady || window.firebaseReady) {
             window.fbSaveWish(formData)
                 .then(allWishes => {
-                    // Jika dapat data terbaru dari cloud, langsung render
+                    // Update cache dengan data resmi dari cloud
                     if (allWishes && allWishes.length > 0) {
                         firebaseWishesCache = allWishes;
                         renderWishes(allWishes, false);
@@ -995,12 +1007,6 @@ function initRSVP() {
 
         // Reset form
         form.reset();
-
-        // Jika Firebase tidak aktif, reload manual
-        if (!window.firebaseReady) {
-            wishesShown = 0;
-            loadWishes();
-        }
 
         showToast('Konfirmasi & doa restu berhasil dikirim ✓');
     });
