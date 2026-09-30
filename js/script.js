@@ -1037,7 +1037,12 @@ function initRSVP() {
     const loadMoreBtn = document.getElementById('btn-load-wishes');
     if (loadMoreBtn) {
         loadMoreBtn.addEventListener('click', () => {
-            loadWishes(true);
+            // Gunakan cache Firebase jika tersedia agar tidak reset ke awal
+            if (window.firebaseReady && firebaseWishesCache !== null) {
+                renderWishes(firebaseWishesCache, true);
+            } else {
+                loadWishes(true);
+            }
         });
     }
 }
@@ -1046,8 +1051,53 @@ function initRSVP() {
 function startFirebaseListeners() {
     // Listen ucapan
     window.fbListenWishes(function (wishes) {
+        const prevCache = firebaseWishesCache;
         firebaseWishesCache = wishes;
-        renderWishes(wishes, false);
+
+        // Jika ini pertama kali (belum ada cache sebelumnya), render dari awal
+        if (prevCache === null) {
+            wishesShown = 0;
+            renderWishes(wishes, false);
+        } else {
+            // Firebase update saat user sudah browsing — pertahankan jumlah
+            // ucapan yang sudah ditampilkan agar tidak collapse kembali ke 5
+            const currentlyShown = wishesShown;
+            wishesShown = 0;
+            renderWishes(wishes, false); // render ulang dari awal
+            // Kalau user sudah load lebih dari halaman pertama,
+            // render lanjutan sampai jumlah yang dulu tampil
+            if (currentlyShown > wishesPerPage) {
+                const extraEnd = Math.min(currentlyShown, wishes.length);
+                const container = document.getElementById('wishes-list');
+                if (container) {
+                    for (let i = wishesPerPage; i < extraEnd; i++) {
+                        const wish = wishes[i];
+                        if (!wish) continue;
+                        const card = document.createElement('div');
+                        card.className = 'wish-card';
+                        const timeAgo = getTimeAgo(new Date(wish.timestamp));
+                        const attendanceBadge = wish.attendance === 'hadir'
+                            ? '<span class="wish-badge wish-badge-hadir">✓ Hadir</span>'
+                            : '<span class="wish-badge wish-badge-tidak">✗ Tidak Hadir</span>';
+                        card.innerHTML = `
+                            <div class="wish-card-top">
+                                <div class="wish-name">${escapeHtml(wish.name)}</div>
+                                ${attendanceBadge}
+                            </div>
+                            <div class="wish-time">${timeAgo}</div>
+                            <div class="wish-message">${escapeHtml(wish.message)}</div>
+                        `;
+                        container.appendChild(card);
+                    }
+                    wishesShown = extraEnd;
+                    // Update tombol load-more
+                    const loadMoreBtn = document.getElementById('btn-load-wishes');
+                    if (loadMoreBtn) {
+                        loadMoreBtn.style.display = wishesShown >= wishes.length ? 'none' : 'inline-flex';
+                    }
+                }
+            }
+        }
     });
 
     // Listen RSVP (untuk export)
