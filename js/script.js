@@ -479,7 +479,7 @@ function populateGift() {
     function getBankIcon(bankName) {
         const name = bankName.toLowerCase();
         if (name.includes('bca') || name.includes('central asia')) {
-            return `<img src="images/logo-bca.svg" alt="Logo BCA" style="width:40px;height:40px;object-fit:contain;">`;
+            return `<img src="images/logo-bca.png" alt="Logo BCA" style="width:44px;height:44px;object-fit:contain;">`;
         } else if (name.includes('bsi') || name.includes('syariah')) {
             return `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="32" height="32" rx="8" fill="rgba(0,120,60,0.18)"/>
