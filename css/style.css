@@ -2043,10 +2043,11 @@ body::before {
 
 .gift-account-name {
     font-family: var(--font-body);
-    font-size: 12px;
-    font-weight: 300;
-    color: var(--color-text-light);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-champagne-light);
     margin-bottom: 16px;
+    letter-spacing: 0.5px;
 }
 
 .btn-copy {
