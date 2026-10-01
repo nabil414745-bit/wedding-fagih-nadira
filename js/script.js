@@ -102,6 +102,11 @@ const weddingData = {
             bank: "Bank Central Asia (BCA)",           // Contoh: "Bank Syariah Indonesia (BSI)"
             accountNumber: "7180500850",  // Contoh: "7712345678"
             accountName: "Nadira Adiba"     // Contoh: "Nadira Putri R"
+        },
+        {
+            bank: "Bank Central Asia (BCA)",
+            accountNumber: "2313124452",
+            accountName: "Ibrahim Faqih"
         }
     ],
 
@@ -470,13 +475,53 @@ function populateGift() {
     const container = document.getElementById('gift-cards');
     if (!container) return;
 
+    // Peta ikon bank berdasarkan kata kunci nama bank
+    function getBankIcon(bankName) {
+        const name = bankName.toLowerCase();
+        if (name.includes('bca') || name.includes('central asia')) {
+            return `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="32" height="32" rx="8" fill="rgba(0,82,204,0.18)"/>
+                <text x="16" y="21" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="11" fill="#0052CC" letter-spacing="0.5">BCA</text>
+            </svg>`;
+        } else if (name.includes('bsi') || name.includes('syariah')) {
+            return `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="32" height="32" rx="8" fill="rgba(0,120,60,0.18)"/>
+                <text x="16" y="21" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="11" fill="#00783C" letter-spacing="0.5">BSI</text>
+            </svg>`;
+        } else if (name.includes('mandiri')) {
+            return `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="32" height="32" rx="8" fill="rgba(0,53,128,0.18)"/>
+                <text x="16" y="21" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="9" fill="#003580" letter-spacing="0.2">MDR</text>
+            </svg>`;
+        } else if (name.includes('bri')) {
+            return `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="32" height="32" rx="8" fill="rgba(0,90,170,0.18)"/>
+                <text x="16" y="21" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="11" fill="#005AAA" letter-spacing="0.5">BRI</text>
+            </svg>`;
+        } else if (name.includes('bni')) {
+            return `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="32" height="32" rx="8" fill="rgba(255,127,0,0.18)"/>
+                <text x="16" y="21" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="11" fill="#FF7F00" letter-spacing="0.5">BNI</text>
+            </svg>`;
+        } else {
+            return `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(212,175,55,0.7)" stroke-width="1.5">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                <line x1="1" y1="10" x2="23" y2="10"></line>
+            </svg>`;
+        }
+    }
+
     container.innerHTML = '';
     weddingData.gift.forEach((item, i) => {
         const el = document.createElement('div');
         el.className = 'gift-card reveal';
         el.style.transitionDelay = (i * 0.15) + 's';
         el.innerHTML = `
-            <div class="gift-bank-name">${item.bank}</div>
+            <div class="gift-card-header">
+                <div class="gift-bank-icon">${getBankIcon(item.bank)}</div>
+                <div class="gift-bank-name">${item.bank}</div>
+            </div>
+            <div class="gift-card-divider"></div>
             <div class="gift-account-number" id="acc-num-${i}">${item.accountNumber}</div>
             <div class="gift-account-name">a.n. ${item.accountName}</div>
             <button class="btn-copy" onclick="copyToClipboard('${item.accountNumber}')">

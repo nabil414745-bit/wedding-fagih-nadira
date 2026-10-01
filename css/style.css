@@ -1980,6 +1980,34 @@ body::before {
     text-align: center;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gift-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(212, 175, 55, 0.1);
+}
+
+.gift-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 4px;
+}
+
+.gift-bank-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.gift-card-divider {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,175,55,0.5), transparent);
+    margin: 14px auto;
 }
 
 .gift-bank-name {
