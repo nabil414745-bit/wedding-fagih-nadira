@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Badge outline -->
+  <rect x="8" y="8" width="184" height="184" rx="38" ry="38" fill="white" stroke="#0052CC" stroke-width="7"/>
+
+  <!-- Stem -->
+  <path d="M100 158 C100 158 100 130 100 118" stroke="#0052CC" stroke-width="8" stroke-linecap="round" fill="none"/>
+
+  <!-- Left root curve -->
+  <path d="M100 140 C85 138 68 132 58 118" stroke="#0052CC" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <!-- Right root curve -->
+  <path d="M100 140 C115 138 132 132 142 118" stroke="#0052CC" stroke-width="8" stroke-linecap="round" fill="none"/>
+
+  <!-- Left petal -->
+  <ellipse cx="72" cy="100" rx="24" ry="30" fill="#0052CC" transform="rotate(-20 72 100)"/>
+  <!-- Right petal -->
+  <ellipse cx="128" cy="100" rx="24" ry="30" fill="#0052CC" transform="rotate(20 128 100)"/>
+  <!-- Center top petal -->
+  <ellipse cx="100" cy="80" rx="20" ry="28" fill="#0052CC"/>
+
+  <!-- White inner lines (separators) -->
+  <path d="M100 118 C93 112 78 108 68 98" stroke="white" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M100 118 C107 112 122 108 132 98" stroke="white" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M100 118 C100 110 100 95 100 82" stroke="white" stroke-width="5" stroke-linecap="round" fill="none"/>
+
+  <!-- Text "GRUP BCA" -->
+  <text x="100" y="178" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="16" fill="#0052CC" letter-spacing="3">GRUP BCA</text>
+</svg>
