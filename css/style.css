@@ -1971,6 +1971,19 @@ body::before {
     margin: 0 auto;
 }
 
+/* Desktop: 2 kartu berdampingan kiri-kanan */
+@media (min-width: 768px) {
+    .gift-cards {
+        flex-direction: row;
+        max-width: 760px;
+        align-items: stretch;
+    }
+
+    .gift-cards .gift-card {
+        flex: 1;
+    }
+}
+
 .gift-card {
     background: rgba(45, 5, 10, 0.88);
     border: 1px solid rgba(212, 175, 55, 0.35);
