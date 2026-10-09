@@ -164,7 +164,7 @@ const weddingData = {
     // agar data RSVP & ucapan otomatis masuk ke Google Sheet secara realtime
     // (Lihat panduan di file PANDUAN_GOOGLE_SPREADSHEET.md)
     // ==============================
-    googleSheetUrl: "https://script.google.com/macros/s/AKfycbxmUApeZi8bHR1mlcXrqnr6LXiqe8ajyzt9nHY0o0Uw5a9m0omRoq8GkTVqbnQUneJP/exec",
+    googleSheetUrl: "https://script.google.com/macros/s/AKfycbyiyYnctCmwf4bsh3IGarG33n7pnl6Gnk_dIPzTIdBsJL1CWaUZ1KZAx1-Of1R4Ylon/exec",
 
     // ==============================
     // NAMA TAMU DEFAULT
@@ -1287,6 +1287,7 @@ function initWishes() {
 
 // Helper: Format waktu relatif
 function getTimeAgo(date) {
+    if (!date || isNaN(date.getTime())) return 'Baru saja';
     const seconds = Math.floor((new Date() - date) / 1000);
     if (seconds < 60) return 'Baru saja';
     if (seconds < 3600) return Math.floor(seconds / 60) + ' menit yang lalu';
