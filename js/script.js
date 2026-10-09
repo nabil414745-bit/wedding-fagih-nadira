@@ -164,7 +164,7 @@ const weddingData = {
     // agar data RSVP & ucapan otomatis masuk ke Google Sheet secara realtime
     // (Lihat panduan di file PANDUAN_GOOGLE_SPREADSHEET.md)
     // ==============================
-    googleSheetUrl: "https://script.google.com/macros/s/AKfycbygnUjkPLieQuaMo-0p7fLaI8mGY_b4WzVe_im65aZrHejAEDxPo5ugNfCDNgkcESq6/exec",
+    googleSheetUrl: "https://script.google.com/macros/s/AKfycbxmUApeZi8bHR1mlcXrqnr6LXiqe8ajyzt9nHY0o0Uw5a9m0omRoq8GkTVqbnQUneJP/exec",
 
     // ==============================
     // NAMA TAMU DEFAULT
@@ -1029,23 +1029,25 @@ function initRSVP() {
         wishesShown = 0;
         renderWishes(firebaseWishesCache, false);
 
-        // Kirim ke JSONBin/Firebase (jika siap) — di background
+        // Kirim ke Google Sheets (jika siap) — di background
         if (window.jsonbinReady || window.firebaseReady) {
-            window.fbSaveWish(formData)
-                .then(allWishes => {
-                    // Update cache dengan data resmi dari cloud
-                    if (allWishes && allWishes.length > 0) {
-                        firebaseWishesCache = allWishes;
-                        renderWishes(allWishes, false);
-                    }
-                })
-                .catch(err => console.warn('[JSONBin] Gagal simpan:', err));
+            window.fbSaveWish(formData).catch(err => console.warn('[GSheets] Gagal simpan:', err));
+
+            // Tunggu 3 detik lalu re-fetch dari Google Sheets
+            // agar ucapan yang baru dikirim muncul dari server (bukan hanya cache lokal)
+            setTimeout(() => {
+                if (window.fbListenWishes) {
+                    window.fbListenWishes(function(wishes) {
+                        if (wishes && wishes.length > 0) {
+                            firebaseWishesCache = wishes;
+                            wishesShown = 0;
+                            renderWishes(wishes, false);
+                        }
+                    });
+                }
+            }, 3000);
         }
 
-        // Kirim ke Google Spreadsheet (jika URL sudah diisi)
-        if (weddingData.googleSheetUrl && weddingData.googleSheetUrl.trim()) {
-            sendRSVPToGoogleSheet(formData);
-        }
 
         // Reset form
         form.reset();
