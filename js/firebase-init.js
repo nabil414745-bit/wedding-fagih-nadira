@@ -38,8 +38,8 @@ window.firebaseReady = false;
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', dispatchReady);
     } else {
-        // DOM sudah siap, tapi tunggu sebentar agar weddingData terdefinisi
-        setTimeout(dispatchReady, 50);
+        // DOM sudah siap dan weddingData sudah terdefinisi (script.js dimuat duluan)
+        dispatchReady();
     }
 })();
 

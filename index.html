@@ -728,12 +728,10 @@
          JAVASCRIPT
          Dimuat di akhir untuk performa
          ============================== -->
-    <!-- Firebase SDK -->
-    <script type="module">
-        // Firebase config tersimpan di script.js lewat window.firebaseConfig
-    </script>
-    <script src="js/firebase-init.js?v=2" defer></script>
-    <script src="js/script.js?v=12" defer></script>
+    <!-- Script utama (mendefinisikan weddingData) harus dimuat duluan -->
+    <script src="js/script.js?v=13" defer></script>
+    <!-- Google Sheets init (membaca weddingData.googleSheetUrl) dimuat setelahnya -->
+    <script src="js/firebase-init.js?v=3" defer></script>
 
 </body>
 
