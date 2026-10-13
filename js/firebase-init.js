@@ -13,16 +13,27 @@ window.jsonbinReady = false;
 window.firebaseReady = false;
 
 // ==============================
+// HELPER: AMBIL URL GOOGLE SHEETS
+// Mendukung window.weddingData maupun weddingData di scope global
+// ==============================
+function getGoogleSheetUrl() {
+    if (typeof window !== 'undefined' && window.weddingData && window.weddingData.googleSheetUrl) {
+        return window.weddingData.googleSheetUrl.trim();
+    }
+    if (typeof weddingData !== 'undefined' && weddingData && weddingData.googleSheetUrl) {
+        return weddingData.googleSheetUrl.trim();
+    }
+    return '';
+}
+
+// ==============================
 // INISIALISASI
 // Tunggu DOM siap lalu cek apakah googleSheetUrl sudah diisi
 // ==============================
 (function initGoogleSheets() {
     // Dispatch event setelah DOM siap agar script.js bisa listen
     function dispatchReady() {
-        // Cek URL dari weddingData (didefinisikan di script.js)
-        const url = (window.weddingData && window.weddingData.googleSheetUrl)
-            ? window.weddingData.googleSheetUrl.trim()
-            : '';
+        const url = getGoogleSheetUrl();
 
         if (!url) {
             console.info('[GSheets] googleSheetUrl belum diisi. Data hanya di localStorage.');
@@ -48,9 +59,7 @@ window.firebaseReady = false;
 // AMBIL SEMUA UCAPAN dari Google Sheets (via doGet)
 // ==============================
 async function gsheetsGetWishes() {
-    const url = (window.weddingData && window.weddingData.googleSheetUrl)
-        ? window.weddingData.googleSheetUrl.trim()
-        : '';
+    const url = getGoogleSheetUrl();
 
     if (!url) return [];
 
@@ -72,9 +81,7 @@ async function gsheetsGetWishes() {
 // SIMPAN UCAPAN ke Google Sheets (via doPost)
 // ==============================
 async function gsheetsSaveWish(formData) {
-    const url = (window.weddingData && window.weddingData.googleSheetUrl)
-        ? window.weddingData.googleSheetUrl.trim()
-        : '';
+    const url = getGoogleSheetUrl();
 
     if (!url) return null;
 
@@ -115,15 +122,15 @@ window.fbSaveWish = async function(data) {
 window.fbListenWishes = function(callback) {
     if (!window.firebaseReady) return null;
 
-    const url = (window.weddingData && window.weddingData.googleSheetUrl)
-        ? window.weddingData.googleSheetUrl.trim()
-        : '';
-
+    const url = getGoogleSheetUrl();
     if (!url) return null;
 
     // Load awal dari Google Sheets, fallback ke localStorage jika gagal
     gsheetsGetWishes().then(wishes => {
         if (wishes && wishes.length > 0) {
+            try {
+                localStorage.setItem('wedding-wishes', JSON.stringify(wishes));
+            } catch (e) {}
             callback(wishes);
         } else {
             // Gagal atau kosong: tampilkan dari localStorage
@@ -139,6 +146,9 @@ window.fbListenWishes = function(callback) {
     const interval = setInterval(() => {
         gsheetsGetWishes().then(wishes => {
             if (wishes && wishes.length > 0) {
+                try {
+                    localStorage.setItem('wedding-wishes', JSON.stringify(wishes));
+                } catch (e) {}
                 callback(wishes);
             }
         }).catch(() => {});

@@ -173,6 +173,9 @@ const weddingData = {
     defaultGuest: "Tamu Undangan"
 };
 
+// Expose weddingData ke window object agar dapat diakses script lain
+window.weddingData = weddingData;
+
 
 // ============================================================
 // JANGAN EDIT DI BAWAH INI KECUALI ANDA TAHU APA YANG DILAKUKAN
